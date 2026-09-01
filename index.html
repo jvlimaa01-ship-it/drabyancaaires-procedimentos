@@ -129,6 +129,12 @@
     margin-bottom: 40px;
     text-align: center;
   }
+  .carousel-card-light {
+    background: var(--cream-2);
+    border: 1px solid var(--border);
+  }
+  .carousel-card-light .carousel-slide { box-shadow: 0 8px 24px rgba(58, 42, 32, 0.12); }
+  .carousel-card-light .carousel-slide.is-active { border-color: var(--accent); }
   .carousel-stage {
     position: relative;
   }
@@ -371,31 +377,17 @@
       </div>
     </div>
     <p class="proof-subhead reveal">O que dizem nossas pacientes</p>
-    <div class="carousel-card reveal">
+    <div class="carousel-card carousel-card-light reveal">
       <div class="carousel-stage">
         <button class="carousel-btn prev" id="testPrev" aria-label="Depoimento anterior">&#8249;</button>
         <div class="carousel-track-wrap">
           <div class="carousel-track" id="testTrack">
-            <div class="carousel-slide video-slide is-active">
+            <div class="carousel-slide video-slide">
               <video id="testimonial-video-1" muted loop playsinline preload="metadata" aria-label="Depoimento em vídeo sobre camuflagem de cicatriz">
                 <source src="img/video/depoimento-1-camuflagem.mp4" type="video/mp4" />
                 Seu navegador não suporta vídeo em HTML5.
               </video>
               <button type="button" id="testimonial-unmute-1" class="unmute-btn video-slide-unmute" aria-label="Ativar som do vídeo">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M11 5 6 9H3v6h3l5 4V5Z"/>
-                  <line x1="23" y1="9" x2="17" y2="15"/>
-                  <line x1="17" y1="9" x2="23" y2="15"/>
-                </svg>
-                <span>Ativar som</span>
-              </button>
-            </div>
-            <div class="carousel-slide video-slide">
-              <video id="testimonial-video-2" muted loop playsinline preload="metadata" aria-label="Depoimento em vídeo de paciente sobre correção de cicatriz">
-                <source src="img/video/depoimento-2-manu-batidao.mp4" type="video/mp4" />
-                Seu navegador não suporta vídeo em HTML5.
-              </video>
-              <button type="button" id="testimonial-unmute-2" class="unmute-btn video-slide-unmute" aria-label="Ativar som do vídeo">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M11 5 6 9H3v6h3l5 4V5Z"/>
                   <line x1="23" y1="9" x2="17" y2="15"/>
@@ -419,11 +411,25 @@
               </button>
             </div>
             <div class="carousel-slide video-slide">
-              <video id="testimonial-video-4" muted loop playsinline preload="metadata" aria-label="Resultado de tratamento de estrias na coxa com o método Dermo Strill®">
-                <source src="img/video/depoimento-4-coxa.mp4" type="video/mp4" />
+              <video id="testimonial-video-5" muted loop playsinline preload="metadata" aria-label="Resultado de tratamento de estrias com o método Dermo Strill®">
+                <source src="img/video/depoimento-5-dermostrill.mp4" type="video/mp4" />
                 Seu navegador não suporta vídeo em HTML5.
               </video>
-              <button type="button" id="testimonial-unmute-4" class="unmute-btn video-slide-unmute" aria-label="Ativar som do vídeo">
+              <button type="button" id="testimonial-unmute-5" class="unmute-btn video-slide-unmute" aria-label="Ativar som do vídeo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M11 5 6 9H3v6h3l5 4V5Z"/>
+                  <line x1="23" y1="9" x2="17" y2="15"/>
+                  <line x1="17" y1="9" x2="23" y2="15"/>
+                </svg>
+                <span>Ativar som</span>
+              </button>
+            </div>
+            <div class="carousel-slide video-slide is-active">
+              <video id="testimonial-video-2" muted loop playsinline preload="metadata" aria-label="Depoimento em vídeo de paciente sobre correção de cicatriz">
+                <source src="img/video/depoimento-2-manu-batidao.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo em HTML5.
+              </video>
+              <button type="button" id="testimonial-unmute-2" class="unmute-btn video-slide-unmute" aria-label="Ativar som do vídeo">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M11 5 6 9H3v6h3l5 4V5Z"/>
                   <line x1="23" y1="9" x2="17" y2="15"/>
@@ -433,11 +439,11 @@
               </button>
             </div>
             <div class="carousel-slide video-slide">
-              <video id="testimonial-video-5" muted loop playsinline preload="metadata" aria-label="Resultado de tratamento de estrias com o método Dermo Strill®">
-                <source src="img/video/depoimento-5-dermostrill.mp4" type="video/mp4" />
+              <video id="testimonial-video-4" muted loop playsinline preload="metadata" aria-label="Resultado de tratamento de estrias na coxa com o método Dermo Strill®">
+                <source src="img/video/depoimento-4-coxa.mp4" type="video/mp4" />
                 Seu navegador não suporta vídeo em HTML5.
               </video>
-              <button type="button" id="testimonial-unmute-5" class="unmute-btn video-slide-unmute" aria-label="Ativar som do vídeo">
+              <button type="button" id="testimonial-unmute-4" class="unmute-btn video-slide-unmute" aria-label="Ativar som do vídeo">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M11 5 6 9H3v6h3l5 4V5Z"/>
                   <line x1="23" y1="9" x2="17" y2="15"/>
@@ -672,7 +678,8 @@
   if (!track || !prevBtn || !nextBtn) return;
 
   var slides = Array.prototype.slice.call(track.children);
-  var current = 0;
+  var initialActive = slides.findIndex(function (s) { return s.classList.contains('is-active'); });
+  var current = initialActive >= 0 ? initialActive : 0;
   var trackVisible = false;
 
   function getVideo(slide) { return slide.querySelector('video'); }
