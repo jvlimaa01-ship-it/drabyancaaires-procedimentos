@@ -99,8 +99,10 @@
     margin-bottom: 40px;
     text-align: center;
   }
-  .carousel-track-wrap {
+  .carousel-stage {
     position: relative;
+  }
+  .carousel-track-wrap {
     overflow: hidden;
     padding: 10px 0;
   }
@@ -155,9 +157,10 @@
   .carousel-btn.prev { left: -44px; }
   .carousel-btn.next { right: -44px; }
   @media (max-width: 480px) {
-    .carousel-card { padding: 28px 8px 32px; }
-    .carousel-btn.prev { left: -4px; }
-    .carousel-btn.next { right: -4px; }
+    .carousel-card { padding: 28px 30px 32px; }
+    .carousel-btn.prev { left: -22px; }
+    .carousel-btn.next { right: -22px; }
+    .carousel-btn { width: 36px; height: 36px; font-size: 1.3rem; }
   }
   .carousel-cta { margin-top: 28px; }
 
@@ -244,15 +247,17 @@
       <h2>Veja o que o método Dermo Strill® já fez</h2>
     </div>
     <div class="carousel-card">
-      <div class="carousel-track-wrap">
+      <div class="carousel-stage">
         <button class="carousel-btn prev" id="proofPrev" aria-label="Anterior">&#8249;</button>
-        <div class="carousel-track" id="proofTrack">
-          <div class="carousel-slide"><img src="img/antes-depois-1-pescoco.jpg" alt="Antes e depois de camuflagem de cicatriz no pescoço com o método Dermo Strill®" loading="lazy" width="600" height="800" /></div>
-          <div class="carousel-slide"><img src="img/antes-depois-2-peito.jpg" alt="Antes e depois de camuflagem de cicatriz no peito com o método Dermo Strill®" loading="lazy" width="600" height="800" /></div>
-          <div class="carousel-slide"><img src="img/antes-depois-3-abdomen.jpg" alt="Antes e depois de camuflagem de cicatriz de cesárea no abdômen com o método Dermo Strill®" loading="lazy" width="600" height="800" /></div>
-          <div class="carousel-slide"><img src="img/antes-depois-4-estrias.jpg" alt="Antes e depois de tratamento de estrias com o método Dermo Strill®" loading="lazy" width="600" height="800" /></div>
-          <div class="carousel-slide"><img src="img/antes-depois-5-olho.jpg" alt="Antes e depois de camuflagem de cicatriz próxima ao olho com o método Dermo Strill®" loading="lazy" width="600" height="800" /></div>
-          <div class="carousel-slide"><img src="img/antes-depois-6-areola.jpg" alt="Antes e depois de camuflagem de aréola com o método Dermo Strill®" loading="lazy" width="600" height="800" /></div>
+        <div class="carousel-track-wrap">
+          <div class="carousel-track" id="proofTrack">
+            <div class="carousel-slide"><img src="img/antes-depois-1-pescoco.jpg" alt="Antes e depois de camuflagem de cicatriz no pescoço com o método Dermo Strill®" loading="lazy" width="600" height="800" /></div>
+            <div class="carousel-slide"><img src="img/antes-depois-2-peito.jpg" alt="Antes e depois de camuflagem de cicatriz no peito com o método Dermo Strill®" loading="lazy" width="600" height="800" /></div>
+            <div class="carousel-slide"><img src="img/antes-depois-3-abdomen.jpg" alt="Antes e depois de camuflagem de cicatriz de cesárea no abdômen com o método Dermo Strill®" loading="lazy" width="600" height="800" /></div>
+            <div class="carousel-slide"><img src="img/antes-depois-4-estrias.jpg" alt="Antes e depois de tratamento de estrias com o método Dermo Strill®" loading="lazy" width="600" height="800" /></div>
+            <div class="carousel-slide"><img src="img/antes-depois-5-olho.jpg" alt="Antes e depois de camuflagem de cicatriz próxima ao olho com o método Dermo Strill®" loading="lazy" width="600" height="800" /></div>
+            <div class="carousel-slide"><img src="img/antes-depois-6-areola.jpg" alt="Antes e depois de camuflagem de aréola com o método Dermo Strill®" loading="lazy" width="600" height="800" /></div>
+          </div>
         </div>
         <button class="carousel-btn next" id="proofNext" aria-label="Próximo">&#8250;</button>
       </div>
