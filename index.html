@@ -210,6 +210,8 @@
   @media (min-width: 860px) { .authority-inner { grid-template-columns: 280px 1fr; } }
   .authority-media { display: flex; justify-content: center; }
   .authority p { color: var(--brown-soft); font-size: 1.02rem; }
+  .authority-photo { border-radius: 20px; overflow: hidden; aspect-ratio: 3/4; border: 1px solid var(--border); box-shadow: 0 20px 50px rgba(58, 42, 32, 0.18); }
+  .authority-photo img { width: 100%; height: 100%; object-fit: cover; display: block; object-position: 50% 20%; }
 
   .faq-item { border-bottom: 1px solid var(--border); padding: 18px 0; }
   .faq-item summary { cursor: pointer; font-weight: 600; font-size: 1rem; }
@@ -343,8 +345,8 @@
 <!-- ============ 5. AUTORIDADE ============ -->
 <section class="authority">
   <div class="container authority-inner">
-    <div class="hero-media-placeholder" style="aspect-ratio: 3/4;">
-      [ PLACEHOLDER — foto profissional da Dra. Byanca, mesma linha visual do institucional ]
+    <div class="authority-photo">
+      <img src="img/dra-byanca-autoridade.jpg" alt="Dra. Byanca Aires, biomédica e autora do método Dermo Strill®" loading="lazy" width="1280" height="1861" />
     </div>
     <div>
       <p class="eyebrow">Quem conduz o seu tratamento</p>
