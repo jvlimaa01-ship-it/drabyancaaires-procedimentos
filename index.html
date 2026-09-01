@@ -193,6 +193,9 @@
     .carousel-btn { width: 36px; height: 36px; font-size: 1.3rem; }
   }
   .carousel-cta { margin-top: 28px; }
+  .testimonial-videos { display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 340px; margin: 0 auto 40px; }
+  @media (min-width: 640px) { .testimonial-videos { grid-template-columns: 1fr 1fr; max-width: 620px; } }
+  .testimonial-frame { max-width: none; margin: 0; }
 
   /* Scroll reveal animations */
   .reveal {
@@ -347,8 +350,49 @@
       </div>
       <a href="https://wa.me/5598981109411?text=Ol%C3%A1%21%20Vi%20os%20resultados%20de%20estrias%2Fcicatrizes%20e%20quero%20agendar%20minha%20avalia%C3%A7%C3%A3o." class="btn btn-primary carousel-cta" target="_blank" rel="noopener noreferrer">Agende a sua avaliação</a>
     </div>
-    <div class="placeholder-block" style="margin-bottom: 40px;">
-      [ PLACEHOLDER — 2 a 3 depoimentos em vídeo curto, ou depoimentos em texto específicos de estrias/cicatrizes ]
+    <div class="testimonial-videos reveal">
+      <div class="video-frame-inner testimonial-frame">
+        <video
+          id="testimonial-video-1"
+          controls
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-label="Depoimento em vídeo sobre camuflagem de cicatriz">
+          <source src="img/video/depoimento-1-camuflagem.mp4" type="video/mp4" />
+          Seu navegador não suporta vídeo em HTML5.
+        </video>
+        <button type="button" id="testimonial-unmute-1" class="unmute-btn" aria-label="Ativar som do vídeo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M11 5 6 9H3v6h3l5 4V5Z"/>
+            <line x1="23" y1="9" x2="17" y2="15"/>
+            <line x1="17" y1="9" x2="23" y2="15"/>
+          </svg>
+          <span>Ativar som</span>
+        </button>
+      </div>
+      <div class="video-frame-inner testimonial-frame">
+        <video
+          id="testimonial-video-2"
+          controls
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-label="Depoimento em vídeo de paciente sobre correção de cicatriz">
+          <source src="img/video/depoimento-2-manu-batidao.mp4" type="video/mp4" />
+          Seu navegador não suporta vídeo em HTML5.
+        </video>
+        <button type="button" id="testimonial-unmute-2" class="unmute-btn" aria-label="Ativar som do vídeo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M11 5 6 9H3v6h3l5 4V5Z"/>
+            <line x1="23" y1="9" x2="17" y2="15"/>
+            <line x1="17" y1="9" x2="23" y2="15"/>
+          </svg>
+          <span>Ativar som</span>
+        </button>
+      </div>
     </div>
     <div class="stats-row">
       <div class="stat reveal" style="transition-delay:0s"><strong>96%</strong><span>De redução na aparência de estrias e cicatrizes</span></div>
@@ -474,41 +518,47 @@
 </script>
 <script>
 (function () {
-  var video = document.getElementById('hero-video');
-  var unmuteBtn = document.getElementById('hero-unmute-btn');
-  if (!video) return;
+  function wireAutoplayVideo(videoId, unmuteBtnId) {
+    var video = document.getElementById(videoId);
+    var unmuteBtn = document.getElementById(unmuteBtnId);
+    if (!video) return;
 
-  function syncUnmuteBtn() {
-    if (!unmuteBtn) return;
-    unmuteBtn.classList.toggle('is-hidden', !video.muted);
-  }
+    function syncUnmuteBtn() {
+      if (!unmuteBtn) return;
+      unmuteBtn.classList.toggle('is-hidden', !video.muted);
+    }
 
-  if (unmuteBtn) {
-    unmuteBtn.addEventListener('click', function () {
-      video.muted = false;
-      video.play().catch(function () {});
-      syncUnmuteBtn();
-    });
-    video.addEventListener('volumechange', syncUnmuteBtn);
-  }
-
-  if ('IntersectionObserver' in window) {
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          video.muted = false;
-          video.play().catch(function () {
-            video.muted = true;
-            video.play().catch(function () {});
-          });
-          syncUnmuteBtn();
-        } else {
-          video.pause();
-        }
+    if (unmuteBtn) {
+      unmuteBtn.addEventListener('click', function () {
+        video.muted = false;
+        video.play().catch(function () {});
+        syncUnmuteBtn();
       });
-    }, { threshold: 0.25 });
-    observer.observe(video);
+      video.addEventListener('volumechange', syncUnmuteBtn);
+    }
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            video.muted = false;
+            video.play().catch(function () {
+              video.muted = true;
+              video.play().catch(function () {});
+            });
+            syncUnmuteBtn();
+          } else {
+            video.pause();
+          }
+        });
+      }, { threshold: 0.25 });
+      observer.observe(video);
+    }
   }
+
+  wireAutoplayVideo('hero-video', 'hero-unmute-btn');
+  wireAutoplayVideo('testimonial-video-1', 'testimonial-unmute-1');
+  wireAutoplayVideo('testimonial-video-2', 'testimonial-unmute-2');
 })();
 </script>
 <script>
