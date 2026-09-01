@@ -211,10 +211,21 @@
     .reveal { opacity: 1; transform: none; transition: none; }
   }
 
-  .stats-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 40px; }
+  .stats-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 8px; }
   .stat { text-align: center; }
   .stat strong { display: block; font-size: 2rem; color: var(--accent); }
   .stat span { color: var(--brown-soft); font-size: 0.92rem; }
+  .proof-subhead {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--accent-dark);
+    margin: 56px 0 20px;
+  }
+  .proof-subhead:first-of-type { margin-top: 40px; }
+  .proof-cta { text-align: center; margin-top: 48px; }
 
   .method-steps { display: grid; grid-template-columns: 1fr; gap: 28px; margin-top: 40px; }
   @media (min-width: 720px) { .method-steps { grid-template-columns: repeat(5,1fr); } }
@@ -333,6 +344,7 @@
       <p class="eyebrow">Resultados reais, pacientes reais</p>
       <h2>Veja o que o método Dermo Strill® já fez</h2>
     </div>
+    <p class="proof-subhead reveal">Resultados em fotos</p>
     <div class="carousel-card reveal">
       <div class="carousel-stage">
         <button class="carousel-btn prev" id="proofPrev" aria-label="Anterior">&#8249;</button>
@@ -348,8 +360,8 @@
         </div>
         <button class="carousel-btn next" id="proofNext" aria-label="Próximo">&#8250;</button>
       </div>
-      <a href="https://wa.me/5598981109411?text=Ol%C3%A1%21%20Vi%20os%20resultados%20de%20estrias%2Fcicatrizes%20e%20quero%20agendar%20minha%20avalia%C3%A7%C3%A3o." class="btn btn-primary carousel-cta" target="_blank" rel="noopener noreferrer">Agende a sua avaliação</a>
     </div>
+    <p class="proof-subhead reveal">O que dizem nossas pacientes</p>
     <div class="testimonial-videos reveal">
       <div class="video-frame-inner testimonial-frame">
         <video
@@ -394,10 +406,14 @@
         </button>
       </div>
     </div>
+    <p class="proof-subhead reveal">Em números</p>
     <div class="stats-row">
       <div class="stat reveal" style="transition-delay:0s"><strong>96%</strong><span>De redução na aparência de estrias e cicatrizes</span></div>
       <div class="stat reveal" style="transition-delay:0.1s"><strong>Zero</strong><span>Intercorrências registradas nos tratamentos</span></div>
       <div class="stat reveal" style="transition-delay:0.2s"><strong>100%</strong><span>Avaliação individualizada antes de qualquer indicação</span></div>
+    </div>
+    <div class="proof-cta reveal">
+      <a href="https://wa.me/5598981109411?text=Ol%C3%A1%21%20Vi%20os%20resultados%20de%20estrias%2Fcicatrizes%20e%20quero%20agendar%20minha%20avalia%C3%A7%C3%A3o." class="btn btn-primary" target="_blank" rel="noopener noreferrer">Agende a sua avaliação</a>
     </div>
   </div>
 </section>
