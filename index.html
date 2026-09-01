@@ -193,9 +193,18 @@
     .carousel-btn { width: 36px; height: 36px; font-size: 1.3rem; }
   }
   .carousel-cta { margin-top: 28px; }
-  .testimonial-videos { display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 340px; margin: 0 auto 40px; }
-  @media (min-width: 640px) { .testimonial-videos { grid-template-columns: 1fr 1fr; max-width: 620px; } }
-  .testimonial-frame { max-width: none; margin: 0; }
+  .testimonial-carousel { max-width: 340px; margin: 0 auto 40px; }
+  .testimonial-stage { position: relative; }
+  .testimonial-viewport { max-width: 300px; margin: 0 auto; }
+  .testimonial-slide { display: none; margin: 0; max-width: none; }
+  .testimonial-slide.is-active { display: block; }
+  .testimonial-dots { display: flex; justify-content: center; gap: 8px; margin-top: 18px; }
+  .testimonial-dot {
+    width: 8px; height: 8px; border-radius: 50%; border: none;
+    background: var(--border); cursor: pointer; padding: 0;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .testimonial-dot.is-active { background: var(--accent); transform: scale(1.3); }
 
   /* Scroll reveal animations */
   .reveal {
@@ -362,8 +371,11 @@
       </div>
     </div>
     <p class="proof-subhead reveal">O que dizem nossas pacientes</p>
-    <div class="testimonial-videos reveal">
-      <div class="video-frame-inner testimonial-frame">
+    <div class="testimonial-carousel reveal">
+      <div class="testimonial-stage">
+        <button class="carousel-btn prev" id="testPrev" aria-label="Depoimento anterior">&#8249;</button>
+        <div class="testimonial-viewport">
+      <div class="video-frame-inner testimonial-slide is-active" data-index="0">
         <video
           id="testimonial-video-1"
           controls
@@ -384,7 +396,7 @@
           <span>Ativar som</span>
         </button>
       </div>
-      <div class="video-frame-inner testimonial-frame">
+      <div class="video-frame-inner testimonial-slide" data-index="1">
         <video
           id="testimonial-video-2"
           controls
@@ -404,6 +416,123 @@
           </svg>
           <span>Ativar som</span>
         </button>
+      </div>
+      <div class="video-frame-inner testimonial-slide" data-index="2">
+        <video
+          id="testimonial-video-3"
+          controls
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-label="Resultado de tratamento de estrias com o método Dermo Strill®">
+          <source src="img/video/depoimento-3-resultado.mp4" type="video/mp4" />
+          Seu navegador não suporta vídeo em HTML5.
+        </video>
+        <button type="button" id="testimonial-unmute-3" class="unmute-btn" aria-label="Ativar som do vídeo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M11 5 6 9H3v6h3l5 4V5Z"/>
+            <line x1="23" y1="9" x2="17" y2="15"/>
+            <line x1="17" y1="9" x2="23" y2="15"/>
+          </svg>
+          <span>Ativar som</span>
+        </button>
+      </div>
+      <div class="video-frame-inner testimonial-slide" data-index="3">
+        <video
+          id="testimonial-video-4"
+          controls
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-label="Resultado de tratamento de estrias na coxa com o método Dermo Strill®">
+          <source src="img/video/depoimento-4-coxa.mp4" type="video/mp4" />
+          Seu navegador não suporta vídeo em HTML5.
+        </video>
+        <button type="button" id="testimonial-unmute-4" class="unmute-btn" aria-label="Ativar som do vídeo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M11 5 6 9H3v6h3l5 4V5Z"/>
+            <line x1="23" y1="9" x2="17" y2="15"/>
+            <line x1="17" y1="9" x2="23" y2="15"/>
+          </svg>
+          <span>Ativar som</span>
+        </button>
+      </div>
+      <div class="video-frame-inner testimonial-slide" data-index="4">
+        <video
+          id="testimonial-video-5"
+          controls
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-label="Resultado de tratamento de estrias com o método Dermo Strill®">
+          <source src="img/video/depoimento-5-dermostrill.mp4" type="video/mp4" />
+          Seu navegador não suporta vídeo em HTML5.
+        </video>
+        <button type="button" id="testimonial-unmute-5" class="unmute-btn" aria-label="Ativar som do vídeo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M11 5 6 9H3v6h3l5 4V5Z"/>
+            <line x1="23" y1="9" x2="17" y2="15"/>
+            <line x1="17" y1="9" x2="23" y2="15"/>
+          </svg>
+          <span>Ativar som</span>
+        </button>
+      </div>
+      <div class="video-frame-inner testimonial-slide" data-index="5">
+        <video
+          id="testimonial-video-6"
+          controls
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-label="Depoimento de paciente sobre camuflagem de cicatriz próxima ao rosto">
+          <source src="img/video/depoimento-6-daniella.mp4" type="video/mp4" />
+          Seu navegador não suporta vídeo em HTML5.
+        </video>
+        <button type="button" id="testimonial-unmute-6" class="unmute-btn" aria-label="Ativar som do vídeo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M11 5 6 9H3v6h3l5 4V5Z"/>
+            <line x1="23" y1="9" x2="17" y2="15"/>
+            <line x1="17" y1="9" x2="23" y2="15"/>
+          </svg>
+          <span>Ativar som</span>
+        </button>
+      </div>
+      <div class="video-frame-inner testimonial-slide" data-index="6">
+        <video
+          id="testimonial-video-7"
+          controls
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-label="Resultado de tratamento de estrias no abdômen com o método Dermo Strill®">
+          <source src="img/video/depoimento-7-abdomen.mp4" type="video/mp4" />
+          Seu navegador não suporta vídeo em HTML5.
+        </video>
+        <button type="button" id="testimonial-unmute-7" class="unmute-btn" aria-label="Ativar som do vídeo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M11 5 6 9H3v6h3l5 4V5Z"/>
+            <line x1="23" y1="9" x2="17" y2="15"/>
+            <line x1="17" y1="9" x2="23" y2="15"/>
+          </svg>
+          <span>Ativar som</span>
+        </button>
+      </div>
+        </div>
+        <button class="carousel-btn next" id="testNext" aria-label="Próximo depoimento">&#8250;</button>
+      </div>
+      <div class="testimonial-dots" id="testDots">
+        <button type="button" class="testimonial-dot is-active" data-goto="0" aria-label="Ver depoimento 1"></button>
+        <button type="button" class="testimonial-dot" data-goto="1" aria-label="Ver depoimento 2"></button>
+        <button type="button" class="testimonial-dot" data-goto="2" aria-label="Ver depoimento 3"></button>
+        <button type="button" class="testimonial-dot" data-goto="3" aria-label="Ver depoimento 4"></button>
+        <button type="button" class="testimonial-dot" data-goto="4" aria-label="Ver depoimento 5"></button>
+        <button type="button" class="testimonial-dot" data-goto="5" aria-label="Ver depoimento 6"></button>
+        <button type="button" class="testimonial-dot" data-goto="6" aria-label="Ver depoimento 7"></button>
       </div>
     </div>
     <p class="proof-subhead reveal">Em números</p>
@@ -573,8 +702,81 @@
   }
 
   wireAutoplayVideo('hero-video', 'hero-unmute-btn');
-  wireAutoplayVideo('testimonial-video-1', 'testimonial-unmute-1');
-  wireAutoplayVideo('testimonial-video-2', 'testimonial-unmute-2');
+
+  // Unmute buttons for every testimonial video (independent of which is active)
+  for (var i = 1; i <= 7; i++) {
+    (function (idx) {
+      var vid = document.getElementById('testimonial-video-' + idx);
+      var btn = document.getElementById('testimonial-unmute-' + idx);
+      if (!vid || !btn) return;
+      function sync() { btn.classList.toggle('is-hidden', !vid.muted); }
+      btn.addEventListener('click', function () {
+        vid.muted = false;
+        vid.play().catch(function () {});
+        sync();
+      });
+      vid.addEventListener('volumechange', sync);
+    })(i);
+  }
+})();
+</script>
+<script>
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.testimonial-slide'));
+  var dots = Array.prototype.slice.call(document.querySelectorAll('.testimonial-dot'));
+  var prevBtn = document.getElementById('testPrev');
+  var nextBtn = document.getElementById('testNext');
+  var carousel = document.querySelector('.testimonial-carousel');
+  if (!slides.length || !prevBtn || !nextBtn) return;
+
+  var current = 0;
+  var carouselVisible = false;
+
+  function getVideo(slide) { return slide.querySelector('video'); }
+
+  function showSlide(index) {
+    var oldVideo = getVideo(slides[current]);
+    if (oldVideo) oldVideo.pause();
+
+    current = (index + slides.length) % slides.length;
+
+    slides.forEach(function (slide, i) {
+      slide.classList.toggle('is-active', i === current);
+    });
+    dots.forEach(function (dot, i) {
+      dot.classList.toggle('is-active', i === current);
+    });
+
+    if (carouselVisible) {
+      var newVideo = getVideo(slides[current]);
+      if (newVideo) {
+        newVideo.muted = true;
+        newVideo.play().catch(function () {});
+      }
+    }
+  }
+
+  prevBtn.addEventListener('click', function () { showSlide(current - 1); });
+  nextBtn.addEventListener('click', function () { showSlide(current + 1); });
+  dots.forEach(function (dot, i) {
+    dot.addEventListener('click', function () { showSlide(i); });
+  });
+
+  if (carousel && 'IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        carouselVisible = entry.isIntersecting;
+        var video = getVideo(slides[current]);
+        if (!video) return;
+        if (entry.isIntersecting) {
+          video.play().catch(function () {});
+        } else {
+          video.pause();
+        }
+      });
+    }, { threshold: 0.3 });
+    obs.observe(carousel);
+  }
 })();
 </script>
 <script>
