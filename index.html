@@ -194,6 +194,20 @@
   }
   .carousel-cta { margin-top: 28px; }
 
+  /* Scroll reveal animations */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .reveal.reveal-left { transform: translateX(-32px); }
+  .reveal.reveal-right { transform: translateX(32px); }
+  .reveal.is-visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
   .stats-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 40px; }
   .stat { text-align: center; }
   .stat strong { display: block; font-size: 2rem; color: var(--accent); }
@@ -206,12 +220,32 @@
   .method-step h3 { font-size: 1rem; margin: 8px 0 6px; }
   .method-step p { color: var(--brown-soft); font-size: 0.92rem; margin: 0; }
 
-  .authority-inner { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
-  @media (min-width: 860px) { .authority-inner { grid-template-columns: 280px 1fr; } }
+  .authority-inner { display: grid; grid-template-columns: 1fr; gap: 56px 40px; align-items: center; }
+  @media (min-width: 860px) { .authority-inner { grid-template-columns: 360px 1fr; } }
   .authority-media { display: flex; justify-content: center; }
   .authority p { color: var(--brown-soft); font-size: 1.02rem; }
+  .authority-photo-wrap { position: relative; max-width: 380px; margin: 0 auto; }
   .authority-photo { border-radius: 20px; overflow: hidden; aspect-ratio: 3/4; border: 1px solid var(--border); box-shadow: 0 20px 50px rgba(58, 42, 32, 0.18); }
   .authority-photo img { width: 100%; height: 100%; object-fit: cover; display: block; object-position: 50% 20%; }
+  .authority-proof-card {
+    position: absolute;
+    left: -18px;
+    bottom: -22px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px 18px;
+    box-shadow: 0 14px 34px rgba(58, 42, 32, 0.22);
+    max-width: 210px;
+  }
+  .authority-proof-stars { color: #f5b301; letter-spacing: 2px; font-size: 0.85rem; margin-bottom: 4px; }
+  .authority-proof-card p { margin: 0; font-size: 0.85rem; color: var(--brown-deep); line-height: 1.4; }
+  .authority-proof-card p strong { color: var(--accent-dark); }
+  .authority-proof-followers { margin-top: 6px !important; padding-top: 6px; border-top: 1px solid var(--border); }
+  @media (max-width: 480px) {
+    .authority-proof-card { left: 10px; bottom: -18px; padding: 12px 14px; max-width: 180px; }
+    .authority-proof-card p { font-size: 0.78rem; }
+  }
 
   .faq-item { border-bottom: 1px solid var(--border); padding: 18px 0; }
   .faq-item summary { cursor: pointer; font-weight: 600; font-size: 1rem; }
@@ -246,7 +280,7 @@
 <!-- ============ 1. HERO ============ -->
 <section class="hero" id="top">
   <div class="container hero-inner">
-    <div>
+    <div class="reveal reveal-left">
       <p class="eyebrow">Método Dermo Strill® · Dra. Byanca Aires · Biomédica CRBM 24200</p>
       <h1>Estrias e cicatrizes não precisam ser a parte da sua história que você esconde</h1>
       <p class="lead">96% de redução na aparência de estrias e cicatrizes, com técnica exclusiva e zero intercorrências registradas.</p>
@@ -255,7 +289,7 @@
         <a href="#prova" class="btn btn-outline">Ver resultados reais</a>
       </div>
     </div>
-    <div class="video-frame-inner">
+    <div class="video-frame-inner reveal reveal-right" style="transition-delay:0.15s">
       <video
         id="hero-video"
         controls
@@ -281,7 +315,7 @@
 
 <!-- ============ 2. EMPATIA ============ -->
 <section class="empathy">
-  <div class="container empathy-inner">
+  <div class="container empathy-inner reveal">
     <h2>Você já tentou de tudo</h2>
     <p>Creme, óleo, procedimento caseiro, promessa de influenciador. E a estria continua lá, a cicatriz continua lá, e a roupa que você deixou de usar continua guardada no fundo do armário.</p>
     <p>Não é falta de esforço seu. É que a maioria das soluções não trata a pele com a técnica que ela realmente precisa — só disfarça por um tempo, ou promete um resultado que nunca chega.</p>
@@ -292,11 +326,11 @@
 <!-- ============ 3. PROVA SOCIAL ============ -->
 <section class="proof" id="prova">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head reveal">
       <p class="eyebrow">Resultados reais, pacientes reais</p>
       <h2>Veja o que o método Dermo Strill® já fez</h2>
     </div>
-    <div class="carousel-card">
+    <div class="carousel-card reveal">
       <div class="carousel-stage">
         <button class="carousel-btn prev" id="proofPrev" aria-label="Anterior">&#8249;</button>
         <div class="carousel-track-wrap">
@@ -317,9 +351,9 @@
       [ PLACEHOLDER — 2 a 3 depoimentos em vídeo curto, ou depoimentos em texto específicos de estrias/cicatrizes ]
     </div>
     <div class="stats-row">
-      <div class="stat"><strong>96%</strong><span>De redução na aparência de estrias e cicatrizes</span></div>
-      <div class="stat"><strong>Zero</strong><span>Intercorrências registradas nos tratamentos</span></div>
-      <div class="stat"><strong>100%</strong><span>Avaliação individualizada antes de qualquer indicação</span></div>
+      <div class="stat reveal" style="transition-delay:0s"><strong>96%</strong><span>De redução na aparência de estrias e cicatrizes</span></div>
+      <div class="stat reveal" style="transition-delay:0.1s"><strong>Zero</strong><span>Intercorrências registradas nos tratamentos</span></div>
+      <div class="stat reveal" style="transition-delay:0.2s"><strong>100%</strong><span>Avaliação individualizada antes de qualquer indicação</span></div>
     </div>
   </div>
 </section>
@@ -327,17 +361,17 @@
 <!-- ============ 4. O MÉTODO ============ -->
 <section class="method">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head reveal">
       <p class="eyebrow">Como funciona</p>
       <h2>O método Dermo Strill®</h2>
       <p style="color: var(--brown-soft); margin-top: 14px;">Uma técnica própria, desenvolvida pela Dra. Byanca Aires, para tratar a aparência de estrias e cicatrizes com eficácia e segurança.</p>
     </div>
     <div class="method-steps">
-      <div class="method-step"><span class="num">01</span><h3>Avaliação da pele</h3><p>Análise da área a ser tratada para indicar o protocolo mais adequado.</p></div>
-      <div class="method-step"><span class="num">02</span><h3>Aplicação do Dermo Strill®</h3><p>Técnica exclusiva aplicada com segurança, sempre com zero intercorrências.</p></div>
-      <div class="method-step"><span class="num">03</span><h3>Sessões de acompanhamento</h3><p>Retornos programados para acompanhar a evolução da área tratada.</p></div>
-      <div class="method-step"><span class="num">04</span><h3>Orientações pós-procedimento</h3><p>Cuidados recomendados para preservar e potencializar o resultado.</p></div>
-      <div class="method-step"><span class="num">05</span><h3>Reavaliação de resultado</h3><p>Conferência do progresso e ajuste do plano, se necessário.</p></div>
+      <div class="method-step reveal" style="transition-delay:0s"><span class="num">01</span><h3>Avaliação da pele</h3><p>Análise da área a ser tratada para indicar o protocolo mais adequado.</p></div>
+      <div class="method-step reveal" style="transition-delay:0.08s"><span class="num">02</span><h3>Aplicação do Dermo Strill®</h3><p>Técnica exclusiva aplicada com segurança, sempre com zero intercorrências.</p></div>
+      <div class="method-step reveal" style="transition-delay:0.16s"><span class="num">03</span><h3>Sessões de acompanhamento</h3><p>Retornos programados para acompanhar a evolução da área tratada.</p></div>
+      <div class="method-step reveal" style="transition-delay:0.24s"><span class="num">04</span><h3>Orientações pós-procedimento</h3><p>Cuidados recomendados para preservar e potencializar o resultado.</p></div>
+      <div class="method-step reveal" style="transition-delay:0.32s"><span class="num">05</span><h3>Reavaliação de resultado</h3><p>Conferência do progresso e ajuste do plano, se necessário.</p></div>
     </div>
   </div>
 </section>
@@ -345,13 +379,22 @@
 <!-- ============ 5. AUTORIDADE ============ -->
 <section class="authority">
   <div class="container authority-inner">
-    <div class="authority-photo">
-      <img src="img/dra-byanca-autoridade.jpg" alt="Dra. Byanca Aires, biomédica e autora do método Dermo Strill®" loading="lazy" width="1280" height="1861" />
+    <div class="authority-photo-wrap reveal reveal-left">
+      <div class="authority-photo">
+        <img src="img/dra-byanca-autoridade.jpg" alt="Dra. Byanca Aires, biomédica e autora do método Dermo Strill®" loading="lazy" width="1280" height="1861" />
+      </div>
+      <div class="authority-proof-card">
+        <div class="authority-proof-stars">★★★★★</div>
+        <p><strong>5,0</strong> · 10 avaliações no Google</p>
+        <p class="authority-proof-followers"><strong>21,6 mil</strong> seguidores no Instagram</p>
+      </div>
     </div>
-    <div>
-      <p class="eyebrow">Quem conduz o seu tratamento</p>
-      <h2 style="font-size: 1.6rem; margin-bottom: 16px;">Dra. Byanca Aires</h2>
-      <p>Pioneira no tratamento de estrias no Maranhão, a Dra. Byanca Aires é Biomédica (CRBM 24200) e autora do método Dermo Strill®. Já são <strong>[ PLACEHOLDER: número ]</strong> pacientes atendidas, com o compromisso de zero intercorrências em cada tratamento.</p>
+    <div class="reveal reveal-right" style="transition-delay:0.15s">
+      <p class="eyebrow">Conheça quem conduz o seu tratamento</p>
+      <h2 style="font-size: 1.8rem; margin-bottom: 20px;">Dra. Byanca Aires</h2>
+      <p>Pioneira no tratamento de estrias no Maranhão, a Dra. Byanca Aires é Biomédica (CRBM 24200) e autora do método Dermo Strill®, uma técnica própria desenvolvida para tratar a aparência de estrias e cicatrizes com eficácia, segurança e o compromisso de zero intercorrências.</p>
+      <p>Já são <strong>[ PLACEHOLDER: número ]</strong> pacientes atendidas, cada uma com uma avaliação individual antes de qualquer indicação de tratamento. Aqui, cuidado estético é tratado com a seriedade que ele merece — sem pressa, sem julgamento e sem promessa vazia.</p>
+      <p>Sua missão é devolver a confiança de quem já tentou de tudo: ajudar cada paciente a se olhar no espelho sem precisar disfarçar nada, com um método próprio, estudado e comprovado por resultados reais.</p>
     </div>
   </div>
 </section>
@@ -359,30 +402,30 @@
 <!-- ============ 6. FAQ ============ -->
 <section class="faq">
   <div class="container" style="max-width: 760px;">
-    <div class="section-head">
+    <div class="section-head reveal">
       <h2>Dúvidas frequentes</h2>
     </div>
-    <details class="faq-item">
+    <details class="faq-item reveal" style="transition-delay:0.0s">
       <summary>O tratamento dói?</summary>
       <p>O procedimento é realizado com todo o cuidado para proporcionar o máximo de conforto. A sensibilidade pode variar de pessoa para pessoa, e isso é conversado com você já na avaliação.</p>
     </details>
-    <details class="faq-item">
+    <details class="faq-item reveal" style="transition-delay:0.06s">
       <summary>Quantas sessões são necessárias?</summary>
       <p>O número de sessões varia de acordo com sua avaliação individual, considerando a área, a extensão e as características de cada caso.</p>
     </details>
-    <details class="faq-item">
+    <details class="faq-item reveal" style="transition-delay:0.12s">
       <summary>O resultado é permanente?</summary>
       <p>Os resultados costumam ser duradouros, mas dependem de fatores individuais e dos cuidados após o tratamento. Isso é explicado com detalhes na sua avaliação.</p>
     </details>
-    <details class="faq-item">
+    <details class="faq-item reveal" style="transition-delay:0.18s">
       <summary>Funciona para estrias antigas (esbranquiçadas) e recentes (avermelhadas)?</summary>
       <p>Sim, o protocolo é ajustado conforme o tipo e o estágio da estria, definido na avaliação individual.</p>
     </details>
-    <details class="faq-item">
+    <details class="faq-item reveal" style="transition-delay:0.24s">
       <summary>Funciona para cicatrizes de qualquer tipo?</summary>
       <p>A indicação varia conforme o tipo de cicatriz. Isso é avaliado caso a caso para garantir o protocolo mais adequado.</p>
     </details>
-    <details class="faq-item">
+    <details class="faq-item reveal" style="transition-delay:0.3s">
       <summary>Posso fazer se tiver pele sensível?</summary>
       <p>Cada pele é avaliada individualmente antes de qualquer indicação, justamente para garantir segurança e o melhor resultado possível para o seu caso.</p>
     </details>
@@ -391,7 +434,7 @@
 
 <!-- ============ 7. CTA FINAL ============ -->
 <section class="final-cta">
-  <div class="container">
+  <div class="container reveal">
     <h2>O primeiro passo pra parar de esconder é uma avaliação</h2>
     <p>Sem compromisso, sem julgamento — só uma conversa sobre o que você quer resolver.</p>
     <a href="https://wa.me/5598981109411?text=Ol%C3%A1%21%20Quero%20agendar%20minha%20avalia%C3%A7%C3%A3o%20de%20estrias%2Fcicatrizes%20com%20a%20Dra.%20Byanca%20Aires." class="btn btn-primary" target="_blank" rel="noopener noreferrer">Quero agendar minha avaliação</a>
@@ -412,6 +455,23 @@
   </div>
 </footer>
 
+<script>
+(function () {
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
+  } else {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { revealObserver.observe(el); });
+  }
+})();
+</script>
 <script>
 (function () {
   var video = document.getElementById('hero-video');
