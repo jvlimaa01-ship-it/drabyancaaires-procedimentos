@@ -89,6 +89,8 @@
   .proof-gallery { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; margin-bottom: 40px; }
   @media (min-width: 720px) { .proof-gallery { grid-template-columns: repeat(3,1fr); } }
   .proof-gallery .placeholder-block { aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center; }
+  .proof-photo { aspect-ratio: 3/4; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); }
+  .proof-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
   .stats-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 40px; }
   .stat { text-align: center; }
@@ -173,12 +175,12 @@
       <h2>Veja o que o método Dermo Strill® já fez</h2>
     </div>
     <div class="proof-gallery">
-      <div class="placeholder-block">[ PLACEHOLDER foto antes-depois 1 — mesmo ângulo/iluminação, consentimento visível ]</div>
-      <div class="placeholder-block">[ PLACEHOLDER foto antes-depois 2 ]</div>
-      <div class="placeholder-block">[ PLACEHOLDER foto antes-depois 3 ]</div>
-      <div class="placeholder-block">[ PLACEHOLDER foto antes-depois 4 ]</div>
-      <div class="placeholder-block">[ PLACEHOLDER foto antes-depois 5 ]</div>
-      <div class="placeholder-block">[ PLACEHOLDER foto antes-depois 6 ]</div>
+      <div class="proof-photo"><img src="img/antes-depois-1-pescoco.jpg" alt="Antes e depois de camuflagem de cicatriz no pescoço com o método Dermo Strill®" loading="lazy" width="600" height="800" /></div>
+      <div class="proof-photo"><img src="img/antes-depois-2-peito.jpg" alt="Antes e depois de camuflagem de cicatriz no peito com o método Dermo Strill®" loading="lazy" width="600" height="800" /></div>
+      <div class="proof-photo"><img src="img/antes-depois-3-abdomen.jpg" alt="Antes e depois de camuflagem de cicatriz de cesárea no abdômen com o método Dermo Strill®" loading="lazy" width="600" height="800" /></div>
+      <div class="proof-photo"><img src="img/antes-depois-4-estrias.jpg" alt="Antes e depois de tratamento de estrias com o método Dermo Strill®" loading="lazy" width="600" height="800" /></div>
+      <div class="proof-photo"><img src="img/antes-depois-5-olho.jpg" alt="Antes e depois de camuflagem de cicatriz próxima ao olho com o método Dermo Strill®" loading="lazy" width="600" height="800" /></div>
+      <div class="proof-photo"><img src="img/antes-depois-6-areola.jpg" alt="Antes e depois de camuflagem de aréola com o método Dermo Strill®" loading="lazy" width="600" height="800" /></div>
     </div>
     <div class="placeholder-block" style="margin-bottom: 40px;">
       [ PLACEHOLDER — 2 a 3 depoimentos em vídeo curto, ou depoimentos em texto específicos de estrias/cicatrizes ]
